@@ -22,3 +22,4 @@ C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBar
 C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBarbershop\obj\Debug\net6.0-windows\cartellBarbershop.pdb
 C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBarbershop\obj\Debug\net6.0-windows\cartellBarbershop.genruntimeconfig.cache
 C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBarbershop\obj\Debug\net6.0-windows\ref\cartellBarbershop.dll
+C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBarbershop\obj\Debug\net6.0-windows\cartellBarbershop.GUI.CustomerMenu.resources

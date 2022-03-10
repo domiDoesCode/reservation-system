@@ -6,35 +6,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using cartellBarbershop.GUI;
 
 namespace cartellBarbershop.DB.Customers
 {
     internal class CustomerDB : CustomerIF
     {
         private SqlCommand cmd;
-        private string connectionString;
+        public DBConnection dbConnection;
 
         public CustomerDB()
         {
             cmd = new SqlCommand();
-            connectionString = "Server=DESKTOP-P6F6B0H\\SQLEXPRESS; Database=CartellDatabase; Trusted_Connection=True;";
+            dbConnection = new DBConnection();
         }
 
         public void createCustomer(string _firstName, string _lastName, string _phoneNo)
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    cmd = new SqlCommand("insert into Customers (First_Name, Last_Name, Phone_Number) values (@firstName, @lastName, @phoneNo)", con);
-
-                    con.Open();
-                    cmd.Parameters.AddWithValue("@firstName", _firstName);
-                    cmd.Parameters.AddWithValue("@lastName", _lastName);
-                    cmd.Parameters.AddWithValue("@phoneNo", _phoneNo);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
+                cmd = new SqlCommand("insert into Customers (First_Name, Last_Name, Phone_Number) values (@firstName, @lastName, @phoneNo)", dbConnection.GetInstance().OpenConnection());
+                cmd.Parameters.AddWithValue("@firstName", _firstName);
+                cmd.Parameters.AddWithValue("@lastName", _lastName);
+                cmd.Parameters.AddWithValue("@phoneNo", _phoneNo);
+                cmd.ExecuteNonQuery();
+                dbConnection.GetInstance().CloseConnection();
             }
             catch (SqlException e)
             {
@@ -46,15 +42,11 @@ namespace cartellBarbershop.DB.Customers
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    cmd = new SqlCommand("select * from Customers where Phone_Number = @phoneNo", con);
-
-                    con.Open();
-                    cmd.Parameters.AddWithValue("@phoneNo", _phoneNo);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
+                cmd = new SqlCommand("select * from Customers where Phone_Number = @phoneNo", dbConnection.GetInstance().OpenConnection());
+                cmd.Parameters.AddWithValue("@phoneNo", _phoneNo);
+                cmd.ExecuteNonQuery();
+                SqlDataReader reader = cmd.ExecuteReader();
+                dbConnection.GetInstance().CloseConnection();
             }
             catch (SqlException e)
             {
@@ -69,10 +61,21 @@ namespace cartellBarbershop.DB.Customers
 
         public void removeCustomer(string _phoneNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                cmd = new SqlCommand("delete from Customers where Phone_Number = @phoneNo", dbConnection.GetInstance().OpenConnection());
+                cmd.Parameters.AddWithValue("@phoneNo", _phoneNo);
+                cmd.ExecuteNonQuery();
+                dbConnection.GetInstance().CloseConnection();
+            }
+            catch (SqlException e)
+            {
+
+                throw;
+            }
         }
 
-        public void updateCustomer(string _firstName, string _lastName, string _phoneNo)
+        public void updateCustomer(string _oldPhoneNo, string _newFirstName, string _newLastName, string _newPhoneNo)
         {
             throw new NotImplementedException();
         }

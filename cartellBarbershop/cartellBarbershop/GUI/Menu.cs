@@ -1,5 +1,7 @@
 using cartellBarbershop.Controller;
 using cartellBarbershop.DB;
+using cartellBarbershop.GUI;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace cartellBarbershop
@@ -8,6 +10,7 @@ namespace cartellBarbershop
     {
         DBConnection connection;
         CustomerController customerCtr;
+        string connectionString = "Server=DESKTOP-P6F6B0H\\SQLEXPRESS; Database=CartellDatabase; Trusted_Connection=True;";
 
         public Menu()
         {
@@ -21,41 +24,36 @@ namespace cartellBarbershop
             connection.OpenConnection();
         }
 
-        private void createButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string firstName;
-                string lastName;
-                string phoneNo;
-                firstName = nameBox.Text;
-                lastName = surnameBox.Text;
-                phoneNo = phoneBox.Text;
-
-                customerCtr.createCustomer(firstName, lastName, phoneNo);
-                MessageBox.Show("Customer created successfully!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Customer creation failed: " + ex.StackTrace);
-            }
-
-        }
-
         private void findButton_Click(object sender, EventArgs e)
         {
             try
             {
-                string phoneNo;
-                phoneNo = findBox.Text;
-
+                //using(SqlConnection con = new SqlConnection(connectionString))
+                //{
+                //    using (DataTable dt = new DataTable("Customer"))
+                //    {
+                //        using(SqlCommand cmd = new SqlCommand("select * from Customers where Phone_Number = @phoneNo", con))
+                //        {
+                //            cmd.Parameters.AddWithValue("@phoneNo", findBox.Text);
+                //            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                //            adapter.Fill(dt);
+                //            dataGridView1.DataSource = dt;
+                //        }
+                //    }
+                //}
+                string phoneNo = findBox.Text;
                 customerCtr.findCustomerByPhone(phoneNo);
-                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Something went wrong" + ex.StackTrace);
             }
+        }
+
+        private void customerMenu_Click(object sender, EventArgs e)
+        {
+            CustomerMenu CM = new CustomerMenu();
+            CM.Show();
         }
     }
 }

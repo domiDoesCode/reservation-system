@@ -7,16 +7,12 @@ using System.Web;
 
 namespace cartellBarbershop.DB
 {
-    internal class DBConnection
+    public class DBConnection
     {
         public string connectionString = "Server=DESKTOP-P6F6B0H\\SQLEXPRESS; Database=CartellDatabase; Trusted_Connection=True;";
         public SqlConnection connection;
         public DBConnection dbConnection;
 
-        public DBConnection()
-        {
-            OpenConnection();
-        }
 
         public DBConnection GetInstance()
         {
@@ -26,17 +22,19 @@ namespace cartellBarbershop.DB
             }
             return dbConnection;
         }
-        public void OpenConnection()
+        public SqlConnection OpenConnection()
         {
             try
             {
                 connection = new SqlConnection(connectionString);
                 connection.Open();
+                return connection;
             }
             catch (SqlException e)
             {
                 MessageBox.Show("Failed: " + e.StackTrace);
             }
+            return null;
         }
 
         public void CloseConnection()

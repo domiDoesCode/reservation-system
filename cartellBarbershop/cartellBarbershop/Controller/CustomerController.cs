@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace cartellBarbershop.Controller
 {
-    internal class CustomerController
+    public class CustomerController
     {
         public CustomerIF customerDB;
 

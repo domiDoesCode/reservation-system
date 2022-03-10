@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cartellBarbershop.Model
 {
-    internal class Price
+    public class Price
     {
         public int Id { get; set; }
         public double SellingPrice { get; set; }

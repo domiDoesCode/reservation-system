@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cartellBarbershop.Model
 {
-    internal class Reservation
+    public class Reservation
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }  

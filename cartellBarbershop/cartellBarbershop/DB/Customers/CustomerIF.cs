@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace cartellBarbershop.DB.Customers
 {
-    internal interface CustomerIF
+    public interface CustomerIF
     {
         public void createCustomer(string _firstName, string _lastName, string _phoneNo);
-        public void updateCustomer(string _firstName, string _lastName, string _phoneNo);
+        public void updateCustomer(string _oldPhoneNo, string _newFirstName, string _newLastName, string _newPhoneNo);
         public void findCustomerbyPhone(string _phoneNo);
         public void removeCustomer(string _phoneNo);
         public List<Customer> printAllCustomers();
