@@ -67,12 +67,6 @@ namespace cartellBarbershop.DB.Customers
                 MessageBox.Show("Failed to find: " + e.StackTrace);
             }
         }
-
-        public List<Customer> printAllCustomers()
-        {
-            throw new NotImplementedException();
-        }
-
         public void removeCustomer(string _phoneNo)
         {
             try

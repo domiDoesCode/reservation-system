@@ -25,3 +25,4 @@ C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBar
 C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBarbershop\obj\Debug\net6.0-windows\cartellBarbershop.GUI.CustomerMenu.resources
 C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBarbershop\obj\Debug\net6.0-windows\cartellBarbershop.GUI.DeleteCustomer.resources
 C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBarbershop\obj\Debug\net6.0-windows\cartellBarbershop.GUI.UpdateCustomer.resources
+C:\Users\Dominik\Desktop\Visual Projects\VSProjects\cartellBarbershop\cartellBarbershop\obj\Debug\net6.0-windows\cartellBarbershop.GUI.Reservation_Management.ReservationMenu.resources

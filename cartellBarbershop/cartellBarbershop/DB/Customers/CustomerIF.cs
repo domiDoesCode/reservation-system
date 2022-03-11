@@ -13,6 +13,5 @@ namespace cartellBarbershop.DB.Customers
         public void updateCustomer(string _oldPhoneNo, string _newFirstName, string _newLastName, string _newPhoneNo);
         public void findCustomerbyPhone(string _phoneNo);
         public void removeCustomer(string _phoneNo);
-        public List<Customer> printAllCustomers();
     }
 }

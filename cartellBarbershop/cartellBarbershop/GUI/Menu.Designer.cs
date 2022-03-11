@@ -30,6 +30,7 @@
         {
             this.connectionButton = new System.Windows.Forms.Button();
             this.customerMenu = new System.Windows.Forms.Button();
+            this.reservationMenuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // connectionButton
@@ -52,11 +53,22 @@
             this.customerMenu.UseVisualStyleBackColor = true;
             this.customerMenu.Click += new System.EventHandler(this.customerMenu_Click);
             // 
+            // reservationMenuButton
+            // 
+            this.reservationMenuButton.Location = new System.Drawing.Point(36, 145);
+            this.reservationMenuButton.Name = "reservationMenuButton";
+            this.reservationMenuButton.Size = new System.Drawing.Size(146, 55);
+            this.reservationMenuButton.TabIndex = 13;
+            this.reservationMenuButton.Text = "Reservation Menu";
+            this.reservationMenuButton.UseVisualStyleBackColor = true;
+            this.reservationMenuButton.Click += new System.EventHandler(this.reservationMenuButton_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(220, 293);
+            this.Controls.Add(this.reservationMenuButton);
             this.Controls.Add(this.customerMenu);
             this.Controls.Add(this.connectionButton);
             this.Name = "Menu";
@@ -69,5 +81,6 @@
 
         private Button connectionButton;
         private Button customerMenu;
+        private Button reservationMenuButton;
     }
 }
