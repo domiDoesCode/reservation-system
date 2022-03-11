@@ -20,27 +20,22 @@ namespace cartellBarbershop.Controller
 
         public void createCustomer(string _firstName, string _lastName, string _phoneNo)
         {
-            try
-            {
-                customerDB.createCustomer(_firstName, _lastName, _phoneNo);
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            customerDB.createCustomer(_firstName, _lastName, _phoneNo);
         }
 
         public void findCustomerByPhone(string _phoneNo)
         {
-            try
-            {
-                customerDB.findCustomerbyPhone( _phoneNo);
-                MessageBox.Show("Customer found.");
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            customerDB.findCustomerbyPhone( _phoneNo);
+        }
+
+        public void deleteCustomer(string _phoneNo)
+        {
+            customerDB.removeCustomer(_phoneNo);
+        }
+
+        public void updateCustomer(string _oldPhoneNo, string _newFirstName, string _newLastName, string _newPhoneNo)
+        {
+            customerDB.updateCustomer(_oldPhoneNo, _newFirstName, _newLastName, _newPhoneNo);
         }
     }
 }

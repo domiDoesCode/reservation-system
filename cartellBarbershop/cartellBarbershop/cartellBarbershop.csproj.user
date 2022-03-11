@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="GUI\CustomerMenu.cs">
+    <Compile Update="GUI\Customer Managmenet\CustomerMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Customer Managmenet\DeleteCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Customer Managmenet\UpdateCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
