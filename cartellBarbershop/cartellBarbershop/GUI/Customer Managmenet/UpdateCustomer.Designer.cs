@@ -50,6 +50,7 @@
             this.label1.Size = new System.Drawing.Size(332, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter the phone number of the customer you want to update:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // findBox
             // 
@@ -57,6 +58,7 @@
             this.findBox.Name = "findBox";
             this.findBox.Size = new System.Drawing.Size(199, 23);
             this.findBox.TabIndex = 1;
+            this.findBox.TextChanged += new System.EventHandler(this.findBox_TextChanged);
             // 
             // findButton
             // 
@@ -82,6 +84,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(353, 246);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label4
             // 

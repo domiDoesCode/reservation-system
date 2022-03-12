@@ -31,6 +31,7 @@
             this.connectionButton = new System.Windows.Forms.Button();
             this.customerMenu = new System.Windows.Forms.Button();
             this.reservationMenuButton = new System.Windows.Forms.Button();
+            this.barberMenuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // connectionButton
@@ -63,11 +64,22 @@
             this.reservationMenuButton.UseVisualStyleBackColor = true;
             this.reservationMenuButton.Click += new System.EventHandler(this.reservationMenuButton_Click);
             // 
+            // barberMenuButton
+            // 
+            this.barberMenuButton.Location = new System.Drawing.Point(36, 217);
+            this.barberMenuButton.Name = "barberMenuButton";
+            this.barberMenuButton.Size = new System.Drawing.Size(146, 55);
+            this.barberMenuButton.TabIndex = 14;
+            this.barberMenuButton.Text = "Barber Menu";
+            this.barberMenuButton.UseVisualStyleBackColor = true;
+            this.barberMenuButton.Click += new System.EventHandler(this.barberMenuButton_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(220, 293);
+            this.ClientSize = new System.Drawing.Size(226, 361);
+            this.Controls.Add(this.barberMenuButton);
             this.Controls.Add(this.reservationMenuButton);
             this.Controls.Add(this.customerMenu);
             this.Controls.Add(this.connectionButton);
@@ -82,5 +94,6 @@
         private Button connectionButton;
         private Button customerMenu;
         private Button reservationMenuButton;
+        private Button barberMenuButton;
     }
 }

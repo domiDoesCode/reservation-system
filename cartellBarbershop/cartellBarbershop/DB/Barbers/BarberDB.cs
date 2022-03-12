@@ -92,7 +92,7 @@ namespace cartellBarbershop.DB.Barbers
 
                 dbConnection.GetInstance().CloseConnection();
 
-                MessageBox.Show("Customer Updated Successfully!");
+                MessageBox.Show("Barber Updated Successfully!");
             }
             catch (SqlException e)
             {

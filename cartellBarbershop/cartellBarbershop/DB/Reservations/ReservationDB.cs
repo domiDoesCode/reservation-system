@@ -102,7 +102,7 @@ namespace cartellBarbershop.DB.Reservations
 
                 dbConnection.GetInstance().CloseConnection();
 
-                MessageBox.Show("Customer Updated Successfully!");
+                MessageBox.Show("Reservation Updated Successfully!");
             }
             catch (SqlException e)
             {

@@ -1,6 +1,7 @@
 using cartellBarbershop.Controller;
 using cartellBarbershop.DB;
 using cartellBarbershop.GUI;
+using cartellBarbershop.GUI.Barber_Managmenet;
 using cartellBarbershop.GUI.Reservation_Management;
 using System.Data;
 using System.Data.SqlClient;
@@ -32,6 +33,12 @@ namespace cartellBarbershop
         {
             ReservationMenu RM = new ReservationMenu();
             RM.Show();
+        }
+
+        private void barberMenuButton_Click(object sender, EventArgs e)
+        {
+            BarberMenu BM = new BarberMenu();
+            BM.Show();
         }
     }
 }
