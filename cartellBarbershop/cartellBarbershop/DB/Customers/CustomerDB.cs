@@ -81,7 +81,7 @@ namespace cartellBarbershop.DB.Customers
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.StackTrace);
+                MessageBox.Show("Failed to delete: " + e.StackTrace);
             }
         }
 
@@ -105,7 +105,7 @@ namespace cartellBarbershop.DB.Customers
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.StackTrace);
+                MessageBox.Show("Failed to update: " + e.StackTrace);
             }
         }
     }

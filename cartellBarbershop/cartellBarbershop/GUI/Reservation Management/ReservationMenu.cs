@@ -33,7 +33,6 @@ namespace cartellBarbershop.GUI.Reservation_Management
 
                 string s = resDateBox.Text;
                 DateTime dt = Convert.ToDateTime(s);
-                string date2 = dt.ToString();
                 int cid = int.Parse(cidBox.Text);
                 int bid = int.Parse(bidBox.Text);
                 int sid = int.Parse(sidbox.Text);
@@ -74,6 +73,39 @@ namespace cartellBarbershop.GUI.Reservation_Management
                 //string phoneNo;
                 //phoneNo = findBox2.Text;
                 //customerCtr.findCustomerByPhone(phoneNo);
+            }
+        }
+
+        private void findServices_Click(object sender, EventArgs e)
+        {
+            using (db.GetInstance().OpenConnection())
+            {
+                SqlDataAdapter sqlData = new SqlDataAdapter("select * from Services", db.GetInstance().OpenConnection());
+                DataTable dt = new DataTable();
+                sqlData.Fill(dt);
+                dataGridViewServices.DataSource = dt;
+            }
+        }
+
+        private void findBarbers_Click(object sender, EventArgs e)
+        {
+            using (db.GetInstance().OpenConnection())
+            {
+                SqlDataAdapter sqlData = new SqlDataAdapter("select * from Barbers", db.GetInstance().OpenConnection());
+                DataTable dt = new DataTable();
+                sqlData.Fill(dt);
+                dataGridViewBarbers.DataSource = dt;
+            }
+        }
+
+        private void findCustomers_Click(object sender, EventArgs e)
+        {
+            using (db.GetInstance().OpenConnection())
+            {
+                SqlDataAdapter sqlData = new SqlDataAdapter("select * from Customers", db.GetInstance().OpenConnection());
+                DataTable dt = new DataTable();
+                sqlData.Fill(dt);
+                dataGridViewCustomers.DataSource = dt;
             }
         }
     }

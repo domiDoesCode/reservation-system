@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -41,17 +42,72 @@ namespace cartellBarbershop.DB.Reservations
 
         public void DeleteReservation(string reservationNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                cmd = new SqlCommand("delete from Reservations where Reservation_Number = @resNo",
+                                     dbConnection.GetInstance().OpenConnection());
+                cmd.Parameters.AddWithValue("@resNo", reservationNo);
+
+                cmd.ExecuteNonQuery();
+
+                dbConnection.GetInstance().CloseConnection();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Failed to delete: " + e.StackTrace);
+            }
         }
 
         public void FindReservation(string reservationNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                cmd = new SqlCommand("select * from Reservations where Reservation_Number = @resNo",
+                                     dbConnection.GetInstance().OpenConnection());
+                cmd.Parameters.AddWithValue("@resNo", reservationNo);
+
+                cmd.ExecuteNonQuery();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string resNo = reader.GetString("Reservation_Number");
+                    string resDate = reader.GetString("Reservation_Date");
+                    int bid = reader.GetInt32("Barber_Id");
+                    int cid = reader.GetInt32("Customer_Id");
+                    int sid = reader.GetInt32("Service_Id");
+                    MessageBox.Show("Customer information:" + "\n" + resNo + " " + resDate + " " + bid + " " + cid + " " + sid);
+                }
+
+                dbConnection.GetInstance().CloseConnection();
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Failed to find: " + e.StackTrace);
+            }
         }
 
-        public void UpdateReservation(string newReservationNo, DateTime newDate, int newBarberId, int newServiceId)
+        public void UpdateReservation(string reservationNo, DateTime newDate, int newBarberId, int newServiceId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                cmd = new SqlCommand("update Reservations set Reservation_Date = @resDate, Barber_Id = @bid, Service_Id = @sid where Reservation_Number = @resNo",
+                                dbConnection.GetInstance().OpenConnection());
+
+                cmd.Parameters.AddWithValue("@resDate", newDate);
+                cmd.Parameters.AddWithValue("@bid", newBarberId);
+                cmd.Parameters.AddWithValue("@sid", newServiceId);
+                cmd.Parameters.AddWithValue("@resNo", reservationNo);
+
+                cmd.ExecuteNonQuery();
+
+                dbConnection.GetInstance().CloseConnection();
+
+                MessageBox.Show("Customer Updated Successfully!");
+            }
+            catch (SqlException e)
+            {
+                MessageBox.Show("Failed to update: " + e.StackTrace);
+            }
         }
     }
 }

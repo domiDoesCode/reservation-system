@@ -20,5 +20,20 @@ namespace cartellBarbershop.Controller
         {
             reservationDB.CreateReservation(reservationNo, date, customerId, barberId, serviceId);
         }
+
+        public void DeleteReservation(string reservationNo)
+        {
+            reservationDB.DeleteReservation(reservationNo);
+        }
+
+        public void FindReservation(string reservationNo)
+        {
+            reservationDB.FindReservation(reservationNo);
+        }
+
+        public void UpdateReservatin(string reservationNo, DateTime newDate, int newBarberId, int newServiceId)
+        {
+            reservationDB.UpdateReservation(reservationNo, newDate, newBarberId, newServiceId);
+        }
     }
 }

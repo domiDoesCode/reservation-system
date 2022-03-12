@@ -26,5 +26,15 @@ namespace cartellBarbershop.GUI
         {
             customerCtr.deleteCustomer(deleteBox.Text);
         }
+
+        private void deleteBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -49,6 +49,7 @@
             this.deleteBox.Name = "deleteBox";
             this.deleteBox.Size = new System.Drawing.Size(196, 23);
             this.deleteBox.TabIndex = 1;
+            this.deleteBox.TextChanged += new System.EventHandler(this.deleteBox_TextChanged);
             // 
             // label1
             // 
@@ -58,6 +59,7 @@
             this.label1.Size = new System.Drawing.Size(327, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Enter the phone number of the customer you want to delete:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // DeleteCustomer
             // 
